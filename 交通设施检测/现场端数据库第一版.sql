@@ -19,9 +19,9 @@ create table cdb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cdb comment '测点表'$
+alter table cdb comment '测点表';
 
 /*==============================================================*/
 /* Table: cdsjb                                                 */
@@ -43,9 +43,9 @@ create table cdsjb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cdsjb comment '测点数据表'$
+alter table cdsjb comment '测点数据表';
 
 /*==============================================================*/
 /* Table: cgqpzmxb                                              */
@@ -64,9 +64,9 @@ create table cgqpzmxb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cgqpzmxb comment '传感器配置明细表'$
+alter table cgqpzmxb comment '传感器配置明细表';
 
 /*==============================================================*/
 /* Table: cgqpzzb                                               */
@@ -83,9 +83,9 @@ create table cgqpzzb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cgqpzzb comment '传感器配置主表'$
+alter table cgqpzzb comment '传感器配置主表';
 
 /*==============================================================*/
 /* Table: cgqsjjxb                                              */
@@ -107,9 +107,9 @@ create table cgqsjjxb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cgqsjjxb comment '传感器数据解析表'$
+alter table cgqsjjxb comment '传感器数据解析表';
 
 /*==============================================================*/
 /* Table: cgqsjyzb                                              */
@@ -125,9 +125,9 @@ create table cgqsjyzb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table cgqsjyzb comment '传感器数据验证表'$
+alter table cgqsjyzb comment '传感器数据验证表';
 
 /*==============================================================*/
 /* Table: gcxmb                                                 */
@@ -141,24 +141,24 @@ create table gcxmb
 engine = InnoDB
 auto_increment = 1
 default charset = utf8
-collate = utf8_general_ci$
+collate = utf8_general_ci;
 
-alter table gcxmb comment '工程项目表'$
+alter table gcxmb comment '工程项目表';
 
 alter table cdb add constraint FK_Relationship_1 foreign key (gcxmbm)
-      references gcxmb (gcxmbm) on delete restrict on update restrict$
+      references gcxmb (gcxmbm) on delete restrict on update restrict;
 
 alter table cdsjb add constraint FK_Relationship_2 foreign key (gcxmbm, cdbm)
-      references cdb (gcxmbm, cdbm) on delete restrict on update restrict$
+      references cdb (gcxmbm, cdbm) on delete restrict on update restrict;
 
 alter table cgqpzmxb add constraint FK_Relationship_3 foreign key (sjcjtdh)
-      references cgqpzzb (sjcjtdh) on delete restrict on update restrict$
+      references cgqpzzb (sjcjtdh) on delete restrict on update restrict;
 
 alter table cgqsjjxb add constraint FK_Relationship_5 foreign key (sjcjtdh, mxh)
-      references cgqpzmxb (sjcjtdh, mxh) on delete restrict on update restrict$
+      references cgqpzmxb (sjcjtdh, mxh) on delete restrict on update restrict;
 
 alter table cgqsjjxb add constraint FK_Relationship_6 foreign key (gcxmbm, cdbm)
-      references cdb (gcxmbm, cdbm) on delete restrict on update restrict$
+      references cdb (gcxmbm, cdbm) on delete restrict on update restrict;
 
 alter table cgqsjyzb add constraint FK_Relationship_4 foreign key (sjcjtdh, mxh)
-      references cgqpzmxb (sjcjtdh, mxh) on delete restrict on update restrict$
+      references cgqpzmxb (sjcjtdh, mxh) on delete restrict on update restrict;
